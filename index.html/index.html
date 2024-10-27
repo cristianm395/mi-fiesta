@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Cumpleaños en una Libreta</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            font-family: 'Arial', sans-serif;
+            color: rgb(21, 231, 224);
+        }
+        .libreta {
+            width: 600px;
+            height: 700px;
+            background: #5DE2E7; /* Color de la portada */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .portada {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .portada img {
+            width: 100%; /* Ajusta el tamaño de la imagen según sea necesario */
+            border-radius: 15px;
+        }
+        .interior {
+            display: none; /* Ocultar el interior inicialmente */
+            background: #17C5CB; /* Color del interior */
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow-y: auto; /* Permitir desplazamiento si es necesario */
+        }
+        .tarjeta {
+            width: 100%; /* Cambiar a 100% para ocupar todo el ancho */
+            background: #5DE2E7;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .imagen {
+            margin: 20px 0;
+        }
+        img {
+            border-radius: 10px;
+            width: 150px; /* Tamaño de la imagen de la tarjeta */
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 2em; /* Tamaño del texto */
+            margin: 0;
+        }
+        p {
+            color: #333;
+            font-size: 1em; /* Tamaño del texto */
+            margin: 10px 0;
+        }
+        .firma {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1em;
+            color: #ff4081;
+        }
+        .boton {
+            margin: 20px; /* Espaciado en la parte inferior */
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute; /* Fijar posición */
+            bottom: 20px; /* Mantener 20px desde el fondo */
+            left: 50%; /* Centrar horizontalmente */
+            transform: translateX(-50%); /* Ajustar posición centrada */
+            z-index: 2; /* Asegurarse de que el botón esté encima */
+        }
+    </style>
+</head>
+<body>
+    <div class="libreta">
+        <div class="portada" id="portada">
+            <img src="miimagen.jpg.jpg" alt="Portada de la Libreta"> <!-- Cambia "miimagen.jpg" a la ruta de tu imagen -->
+        </div>
+        <div class="interior" id="interior">
+            <div class="tarjeta">
+                <div class="imagen">
+                    <img src="fotoeliam.jpg" alt="Cumpleaños">
+                </div>
+                <h1>¡VEN A MI CUMPLEAÑOS!</h1>
+                <p>HOY ES UN GRAN DIA PARA MI,
+                   DIOS ME HA BENDECIDO CON MI PRIMER AÑITO
+                    Y QUIERO CELEBRARLO JUNTO A TI, 
+                   QUIERO QUE ME ACOMPAÑES 
+                   Y HAGAS DE MI DIA; 
+                   ALGO ESPECIAL...!!!!!</p>
+                <p>Dia: Jueves 07 de Noviembre</p>
+                <p>Lugar: Casa de mis Padres</p>
+                <p>Hora: 3:00pm</p>
+                <p class="firma">Espero con ansias tu presencia</p>
+            </div>
+        </div>
+        <button class="boton" id="abrirBtn">Abrir Invitación</button>
+    </div>
+
+    <script>
+        document.getElementById('abrirBtn').onclick = function() {
+            const interior = document.getElementById('interior');
+            const portada = document.getElementById('portada');
+
+            if (interior.style.display === 'none' || interior.style.display === '') {
+                interior.style.display = 'flex'; // Mostrar el interior
+                portada.style.display = 'none'; // Ocultar la portada
+                this.textContent = 'Regresar'; // Cambiar texto del botón
+            } else {
+                interior.style.display = 'none'; // Ocultar el interior
+                portada.style.display = 'flex'; // Mostrar la portada
+                this.textContent = 'Abrir Invitación'; // Cambiar texto del botón
+            }
+        };
+    </script>
+</body>
+</html>
